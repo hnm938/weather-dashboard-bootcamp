@@ -102,96 +102,59 @@ p {
   margin: 0;
 }
 
-#weather-body {
-  width: 75%;
-  margin: 0 auto;
+header {
+  @include T;
+  width: 100%;
+  height: fit-content;
+  padding: 50px 0;
 
-  display: grid;
-  grid-template-columns: calc(25% - 50px) calc(75% - 50px);
-  grid-row: 1fr 1fr;
-  padding: 25px 0;
-  justify-content: center;
+  @include flex-center();
+  
+  #forecast-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0 15px;
 
-  background-color: rgba(245, 245, 245, 1);
-  border-radius: 50px;
+    div {
+      padding: 25px 25px;
 
-  hr {
-    opacity: 0.25;
-    background-color: black;
-    height: 3px;
-    margin: 25px auto;
-  }
-
-  #weather-body--current-location {
-    height: 250px;
-    width: 100%;
-
-    grid-row: 1;
-    grid-column: 2;
-
-    @include weather-header();
-  }
-
-  #weather-body--search {
-    width: 100%;
-    grid-row: span 2;
-    grid-column: 1;
-
-    input[type="text"],
-    button {
-      width: 75%;
-      border: solid black 1px;
-      border-radius: 4px;
-    }
-    input[type="text"] {
-      padding: 5px 10px;
-      outline: none;
-    }
-
-    #location-searchbar-container {
-      h1 {
-        border-bottom: solid black 1px;
-      }
-    }
-
-    #preset-locations {
       @include flex-center();
       flex-direction: column;
-      gap: 15px 0;
-    }
-  }
-
-  #weather-body--5day {
-    width: 100%;
-
-    grid-row: 2;
-    grid-column: 2;
-    @include flex-center();
-
-    ul {
-      border: solid red 1px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: fit-content;
-
-      li {
-        height: fit-content;
-        // padding: 5px 10px;
-        // margin: 0 10px;
-
-        // display: grid;
-        // grid-template-columns: min-content 1fr 1fr;
-        // grid-template-rows: 100%;
-
-        @include flex-center();
-        @include T(green, 2px);
-
-        border: solid black 1px;
-        border-radius: 8px;
       
-                
+      border: solid black 1px;
+      border-radius: 8px;
 
+      img {
+        width: 75%;
+        aspect-ratio: 1;
+        margin: 0 0 15px 0;
+      }
+      
+      hr {
+        width: 90%;
+        height: 3px;
+        background-color: black;
+        opacity: 0.2;
+        margin: 10px 0;  
+      }
+
+      h3 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.25em;
+      }
+      h1 {
+        line-height: 1.1em;
+        font-weight: bold;
+        font-size: 3.5em;
+      
+        position: relative;
+
+        &:after {
+          content: "°";
+          position: absolute;
+        }
       }
     }
   }

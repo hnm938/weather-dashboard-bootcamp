@@ -13,55 +13,17 @@
     <title>Weather Dashboard | Abe Hodos</title>
   </head>
   <body>
-    <section id="weather-body">
-      <div id="weather-body--current-location">
-        <header>
-          <div id="location--current-weather-container">
-            <h2 id="location--weather-desc">Cloudy</h2>
-            <h3 id="location--current-location">Hamilton, Ontario</h3>
-            <h1 id="location--current-temp">18</h1>
-          </div>
-        </header>
-      </div>
-      
-      <div id="weather-body--search">
-        <div
-          id="location-searchbar-container"
-          class="gap-y-[10px] w-full flex items-center justify-center flex-col"
-        >
-          <h1 class="w-[75%] pb-[5px] text-[1.5em] align-left">City Search:</h1>
-          <input
-            type="text"
-            name="location-searchbar"
-            id="location-searchbar"
-          />
-          <button>Search</button>
-        </div>
-        <hr class="w-[90%]" />
-        <div id="preset-locations">
-          <button>Toronto</button>
-          <button>Ottawa</button>
-          <button>Mississauga</button>
-          <button>Brampton</button>
-          <button>Hamilton</button>
-          <button>Brantford</button>
+    <header>
+      <div id="forecast-container">
+        <div>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAATlBMVEUAAAABAQF9fX2ZmZmsrKyLi4u2trYHBwd5eXm0tLSdnZ2Dg4OJiYmoqKiRkZGNjY36+vr09PTk5OTW1tbMzMzExMS9vb1qampjY2NpaWk2P5IbAAACsklEQVR4nO3djXKaQBSG4bMYWFTU1sakvf8b7fIjYjqthOqY7+z7jjNBg2EfEIwjMfbt+/HH6+upqtbrl91uM7TaH8oyXboOZbMtirpY1LYp/1W7mP1qs7rZ5mVO62rS27o67Y62Md+9W2UxWrAwKd0+TpwLi7q5/PN8w5zXX66ufmKhw9fYXqyxXRLGePmmTeaZDGPJ6ptzv2VrbrYwWp2EwUbhZCYL/z+K/r63jDZr9c1b3tW12N5S2Kr12QfifR6lZ8Htcd+J+GG22N5QpCNNq41/LvRTI/3bmGaMbM52nr28MPlhvatO23DJ4CUK50fp3dbhVwuhfgj1y0bYPR/6fL4YtyFC2QbhPguh00PNICzdCxv3wnLxS/gvH0L9EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1C8bYdNNPnswD2kQbs27sDhP+usi9LojDsLa/TukdX/a87NH84guQvN9Lob//bBweyhF6CCE+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfgj1m75D6v2dGYSqIdQPoX7jOVFe3+TO57w2hMIh1A+hfgj1Q6gfQv0Q6odQP4T6IdQPoX4I9UOoH0L9EOqHUL9shIcshL7/Hr80p1tw+vk0XonjNvR+9uXe3G7EQdj9Z7kMhC6JF6FTIEIHIdQPoX4I9UOoH0L9EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1C/bIQb98IXt0CEDkKoH0L9EOqHUD+E+iHUD6F+CPVDqB9C/RDqh1A/hPoh1A+hfpkJXRonQt+f/OFfuDavu2E+wioLoVPjldAlcSp0fSxFKBxC/RDqN/7WFmOw+OzRPKB+w9VpG/bT7rLYqjph8CkM0UJC9q8tfD5KbRCeLO2ISfjsNf6AYnuk2abX+L57t+PPpq63hcM61a+339l2GAd91T5eAAAAAElFTkSuQmCC" alt="" srcset="">
+          <hr>
+          <h3>Cloudy</h3>
+          <h2>Hamilton, Ontario</h2>
+          <h1>18</h1>
         </div>
       </div>
-      
-      <div id="weather-body--5day">
-        <ul>
-          <li>
-            <header>
-              <div id="location--current-weather-container">
-                <h2 id="location--weather-desc">Cloudy</h2>
-                <h3 id="location--current-location">Hamilton, Ontario</h3>
-                <h1 id="location--current-temp">18</h1>
-              </div>
-            </header>
-          </li>
-        </ul>
-      </div>
-    </section>
+    </header>
     <script src="./script.js"></script>
   </body>
 </html>
