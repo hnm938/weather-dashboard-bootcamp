@@ -50,7 +50,7 @@
 }
 
 :root {
-  --background-color: rgba(135, 186, 237, 0.8);
+  --background-color: rgba(169, 204, 239, 0.8);
 }
 
 * {
@@ -64,6 +64,8 @@ body {
   padding: 0;
   margin: 0;
   background: linear-gradient(0deg, hsl(238, 86%, 62%) 0%, hsl(228, 73%, 66%) 45%, hsl(211, 100%, 83%) 100%);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   background-image: url("./assets/background.jpg");
   background-position-y: 100vh;
   background-size: cover;
@@ -91,7 +93,6 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 70px;
 }
 header #current-icon {
   height: 125px;
@@ -121,8 +122,7 @@ header #title {
   min-width: -moz-fit-content;
   min-width: fit-content;
   width: 300px;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
+  font-weight: bold;
   font-size: 3em;
   text-align: center;
 }

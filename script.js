@@ -23,7 +23,6 @@ async function getForecast(location, lat, lon) {
   let weeksForecast = [];
 
   // Set current location weather
-  document.getElementById("current-icon").src = `http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png`;
   document.getElementById("current-desc").innerHTML = capitalize(weatherList[0].weather[0].description);
   document.getElementById("current-location").innerHTML = weatherData.city.name;
   document.getElementById("current-temp").innerHTML = KtoC(weatherList[0].main.temp);
