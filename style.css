@@ -29,6 +29,30 @@
   font-weight: bold;
   font-style: normal;
 }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);
+  border-radius: 100px;
+  -webkit-transition: background-color 250ms ease;
+  transition: background-color 250ms ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(235, 235, 235, 0.4);
+  -webkit-transition: background-color 250ms ease;
+  transition: background-color 250ms ease;
+}
+
+::-webkit-scrollbar {
+  height: 15px;
+}
+
+:root {
+  --background-color: rgba(135, 186, 237, 0.8);
+}
+
 * {
   box-sizing: border-box;
   font-family: "DINRoundPro", sans-serif;
@@ -36,8 +60,14 @@
 }
 
 body {
+  min-height: 100vh;
   padding: 0;
   margin: 0;
+  background: linear-gradient(0deg, hsl(238, 86%, 62%) 0%, hsl(228, 73%, 66%) 45%, hsl(211, 100%, 83%) 100%);
+  background-image: url("./assets/background.jpg");
+  background-position-y: 100vh;
+  background-size: cover;
+  color: rgb(28, 36, 54);
 }
 
 h1,
@@ -48,55 +78,184 @@ p {
   margin: 0;
 }
 
-header {
-  border: solid red 1px;
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 50px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-header #forecast-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0 15px;
-}
-header #forecast-container div {
-  padding: 25px 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: solid black 1px;
-  border-radius: 8px;
-}
-header #forecast-container div img {
-  width: 75%;
-  aspect-ratio: 1;
-  margin: 0 0 15px 0;
-}
-header #forecast-container div hr {
+hr {
   width: 90%;
   height: 3px;
   background-color: black;
   opacity: 0.2;
   margin: 10px 0;
 }
-header #forecast-container div h3 {
-  font-size: 1.5em;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 70px;
 }
-header #forecast-container div h2 {
+header #current-icon {
+  height: 125px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header #current-desc {
+  font-weight: 500;
+  font-size: 1.75em;
+}
+header #current-location {
   font-size: 1.25em;
 }
-header #forecast-container div h1 {
+header #current-temp {
+  font-weight: bold;
+  font-size: 4em;
+  transform: translateY(-10px);
+  position: relative;
+}
+header #current-temp::after {
+  content: "°";
+  position: absolute;
+}
+header #title {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 300px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  font-size: 3em;
+  text-align: center;
+}
+header input[type=text] {
+  width: 400px;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 10px 25px;
+  background-color: transparent;
+  font-size: 1em;
+  font-family: "DINRoundPro";
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: var(--background-color);
+  border-radius: 100px;
+  outline: none;
+  transition: background-color 250ms ease;
+}
+header input[type=text]:hover {
+  background-color: rgba(235, 235, 235, 0.4);
+  transition: background-color 250ms ease;
+}
+header input[type=text]::-moz-placeholder {
+  color: inherit;
+}
+header input[type=text]::placeholder {
+  color: inherit;
+}
+header button {
+  padding: 10px 25px;
+  border-radius: 100px;
+  font-weight: bold;
+  background-color: var(--background-color);
+  transition: background-color 250ms ease;
+}
+header button:hover {
+  background-color: rgba(235, 235, 235, 0.4);
+  transition: background-color 250ms ease;
+}
+
+#search-history {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 25px auto;
+}
+
+#search-history-clear, #search-history button {
+  margin: 5px;
+  padding: 5px 15px;
+  border-radius: 100px;
+  background-color: var(--background-color);
+  transition: background-color 250ms ease;
+}
+#search-history-clear:hover, #search-history button:hover {
+  background-color: rgba(235, 235, 235, 0.4);
+  transition: background-color 250ms ease;
+}
+
+#forecast {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#forecast #forecast-container {
+  width: 75%;
+  display: grid;
+  padding-bottom: 10px;
+  border-radius: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0 15px;
+  overflow-x: scroll;
+}
+#forecast #forecast-container div {
+  width: 100%;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  background-color: var(--background-color) !important;
+  padding: 25px 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 8px;
+}
+#forecast #forecast-container div img {
+  width: 100px;
+  height: auto;
+}
+#forecast #forecast-container div .forecast-details {
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  background-color: rgba(235, 235, 235, 0.1) !important;
+}
+#forecast #forecast-container div .forecast-details img {
+  width: 50px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1/span 2;
+}
+#forecast #forecast-container div .forecast-date {
+  font-size: 1em;
+  margin: 10px 0;
+}
+#forecast #forecast-container div .forecast-desc {
+  white-space: nowrap;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+#forecast #forecast-container div .forecast-location {
+  font-size: 1.25em;
+}
+#forecast #forecast-container div .forecast-temp {
   line-height: 1.1em;
   font-weight: bold;
   font-size: 3.5em;
   position: relative;
 }
-header #forecast-container div h1:after {
+#forecast #forecast-container div .forecast-temp:after {
   content: "°";
   position: absolute;
 }/*# sourceMappingURL=style.css.map */
