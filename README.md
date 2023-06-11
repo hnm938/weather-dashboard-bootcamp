@@ -1,4 +1,6 @@
 # Weather dashboard
+GitHub Pages: https://hnm938.github.io/weather-dashboard-bootcamp/
+
 This project is for the UofT bootcamp module 6, We were tasked to create a 
 simple 5 day forecast weather dashboard using the OpenWeather API.
 
